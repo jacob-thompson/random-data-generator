@@ -6,11 +6,15 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		947874CC2CEE2175002F4381 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 947874CB2CEE2171002F4381 /* README.md */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXCopyFilesBuildPhase section */
 		94D6DF8E2CED1C13001A875F /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
-			dstPath = /usr/share/man/man1/;
+			dstPath = /usr/share/man/man1;
 			dstSubfolderSpec = 0;
 			files = (
 			);
@@ -19,12 +23,27 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		947874C22CEDD76F002F4381 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		947874CB2CEE2171002F4381 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		94D6DF902CED1C13001A875F /* random-data-generator */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "random-data-generator"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		947874C42CEDD9CB002F4381 /* Exceptions for "random-data-generator" folder in "random-data-generator" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				output.csv,
+			);
+			target = 94D6DF8F2CED1C13001A875F /* random-data-generator */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		94D6DF922CED1C13001A875F /* random-data-generator */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				947874C42CEDD9CB002F4381 /* Exceptions for "random-data-generator" folder in "random-data-generator" target */,
+			);
 			path = "random-data-generator";
 			sourceTree = "<group>";
 		};
@@ -44,6 +63,8 @@
 		94D6DF872CED1C13001A875F = {
 			isa = PBXGroup;
 			children = (
+				947874C22CEDD76F002F4381 /* .gitignore */,
+				947874CB2CEE2171002F4381 /* README.md */,
 				94D6DF922CED1C13001A875F /* random-data-generator */,
 				94D6DF912CED1C13001A875F /* Products */,
 			);
@@ -67,6 +88,7 @@
 				94D6DF8C2CED1C13001A875F /* Sources */,
 				94D6DF8D2CED1C13001A875F /* Frameworks */,
 				94D6DF8E2CED1C13001A875F /* CopyFiles */,
+				947874C32CEDD9CB002F4381 /* Resources */,
 			);
 			buildRules = (
 			);
@@ -114,6 +136,17 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		947874C32CEDD9CB002F4381 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				947874CC2CEE2175002F4381 /* README.md in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		94D6DF8C2CED1C13001A875F /* Sources */ = {
