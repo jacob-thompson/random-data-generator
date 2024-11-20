@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		947874CC2CEE2175002F4381 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 947874CB2CEE2171002F4381 /* README.md */; };
+		947874D02CEE224A002F4381 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 947874CF2CEE224A002F4381 /* LICENSE */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,6 +26,7 @@
 /* Begin PBXFileReference section */
 		947874C22CEDD76F002F4381 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		947874CB2CEE2171002F4381 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		947874CF2CEE224A002F4381 /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		94D6DF902CED1C13001A875F /* random-data-generator */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "random-data-generator"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -65,6 +67,7 @@
 			children = (
 				947874C22CEDD76F002F4381 /* .gitignore */,
 				947874CB2CEE2171002F4381 /* README.md */,
+				947874CF2CEE224A002F4381 /* LICENSE */,
 				94D6DF922CED1C13001A875F /* random-data-generator */,
 				94D6DF912CED1C13001A875F /* Products */,
 			);
@@ -115,6 +118,7 @@
 				TargetAttributes = {
 					94D6DF8F2CED1C13001A875F = {
 						CreatedOnToolsVersion = 16.1;
+						LastSwiftMigration = 1610;
 					};
 				};
 			};
@@ -142,6 +146,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				947874D02CEE224A002F4381 /* LICENSE in Resources */,
 				947874CC2CEE2175002F4381 /* README.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -277,16 +282,21 @@
 		94D6DF982CED1C13001A875F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 6.0;
 			};
 			name = Debug;
 		};
 		94D6DF992CED1C13001A875F /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 6.0;
 			};
 			name = Release;
 		};
