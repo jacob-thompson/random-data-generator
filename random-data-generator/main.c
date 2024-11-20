@@ -11,8 +11,13 @@
 #include <string.h>
 #include <time.h>
 
-#define PROJECT_NAME "random-data-generator"
 #define BUF_SIZE 64
+#define MIN_3DIGIT 100
+#define MAX_3DIGIT 999
+#define MIN_4DIGIT 1000
+#define MAX_4DIGIT 9999
+#define POSSIBLE_EMAIL_DOMAINS 6
+#define PROJECT_NAME "random-data-generator"
 
 char* withoutCaps(char* str)
 {
@@ -27,9 +32,9 @@ char* getPhone(void)
     char* phoneNumber = malloc(BUF_SIZE * sizeof(char));
 
     unsigned short area, exchange, line;
-    area = rand() % 999 + 100;
-    exchange = rand() % 999 + 100;
-    line = rand() % 9999 + 1000;
+    area = rand() % (MAX_3DIGIT + 1 - MIN_3DIGIT) + MIN_3DIGIT;
+    exchange = rand() % (MAX_3DIGIT + 1 - MIN_3DIGIT) + MIN_3DIGIT;
+    line = rand() % (MAX_4DIGIT + 1 - MIN_4DIGIT) + MIN_4DIGIT;
 
     sprintf(phoneNumber, "(%d) %d - %d", area, exchange, line);
 
@@ -40,34 +45,38 @@ char* getEmail(char* first, char* last)
 {
     char* email = malloc(BUF_SIZE * sizeof(char));
     strcat(email, first);
-    strcat(email, last);
 
     char* gmail = "@gmail.com";
     char* yahoo = "@yahoo.com";
     char* outlook = "@outlook.com";
     char* hotmail = "@hotmail.com";
     char* aol = "@aol.com";
-    unsigned short domain = rand() % 7 + 1;
+    unsigned short domain = rand() % POSSIBLE_EMAIL_DOMAINS + 1;
 
     switch (domain)
     {
         case 1:
+            strcat(email, last);
             strcat(email, gmail);
             return withoutCaps(email);
             break;
         case 2:
+            strcat(email, last);
             strcat(email, yahoo);
             return withoutCaps(email);
             break;
         case 3:
+            strcat(email, last);
             strcat(email, outlook);
             return withoutCaps(email);
             break;
         case 4:
+            strcat(email, last);
             strcat(email, hotmail);
             return withoutCaps(email);
             break;
         case 5:
+            strcat(email, last);
             strcat(email, aol);
             return withoutCaps(email);
             break;
@@ -159,17 +168,14 @@ int main(int argc, const char** argv)
     FILE* mlist = fopen("middle.txt", "r");
     FILE* llist = fopen("last.txt", "r");
     FILE* plist = fopen("place.txt", "r");
-    unsigned short firstCount, middleCount, lastCount, placeCount;
 
     if (flist == NULL || mlist == NULL || llist == NULL || plist == NULL)
         return readError();
-    else
-    {
-        firstCount = countList(flist);
-        middleCount = countList(mlist);
-        lastCount = countList(llist);
-        placeCount = countList(plist);
-    }
+
+    const unsigned short firstCount = countList(flist);
+    const unsigned short middleCount = countList(mlist);
+    const unsigned short lastCount = countList(llist);
+    const unsigned short placeCount = countList(plist);
 
     if (firstCount == 0 || middleCount == 0 || lastCount == 0 || placeCount == 0)
         return unexpectedError();
