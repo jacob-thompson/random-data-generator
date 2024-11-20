@@ -12,8 +12,7 @@
 #include <time.h>
 
 #define PROJECT_NAME "random-data-generator"
-#define BUF_SIZE 65536
-#define LINE_SIZE 128
+#define BUF_SIZE 64
 
 char* withoutCaps(char* str)
 {
@@ -25,7 +24,7 @@ char* withoutCaps(char* str)
 
 char* getPhone(void)
 {
-    char* phoneNumber = malloc(LINE_SIZE * sizeof(char));
+    char* phoneNumber = malloc(BUF_SIZE * sizeof(char));
 
     unsigned short area, exchange, line;
     area = rand() % 999 + 100;
@@ -33,12 +32,13 @@ char* getPhone(void)
     line = rand() % 9999 + 1000;
 
     sprintf(phoneNumber, "(%d) %d - %d", area, exchange, line);
+
     return phoneNumber;
 }
 
 char* getEmail(char* first, char* last)
 {
-    char* email = malloc(LINE_SIZE * sizeof(char));
+    char* email = malloc(BUF_SIZE * sizeof(char));
     strcat(email, first);
     strcat(email, last);
 
@@ -82,19 +82,20 @@ char* getEmail(char* first, char* last)
 
 char* getName(unsigned short count, FILE* list)
 {
-    char* line = malloc(LINE_SIZE * sizeof(char));
+    char* line = malloc(BUF_SIZE * sizeof(char));
 
     unsigned short increment = 1;
     unsigned short random = rand() % count + 1;
 
-    while (fgets(line, LINE_SIZE, list) != NULL)
+    while (fgets(line, BUF_SIZE, list) != NULL)
     {
         if (increment == random)
         {
-            fseek(list, 0, SEEK_SET);
-
             unsigned long len = strlen(line);
             line[len - 1] = '\0';
+
+            fseek(list, 0, SEEK_SET);
+
             return line;
         } else
             increment++;
@@ -105,17 +106,17 @@ char* getName(unsigned short count, FILE* list)
 
 unsigned short countList(FILE* file)
 {
-    char buf[BUF_SIZE];
+    char buffer[BUF_SIZE];
     unsigned short counter = 0;
 
     for (;;)
     {
-        size_t res = fread(buf, 1, BUF_SIZE, file);
+        size_t res = fread(buffer, 1, BUF_SIZE, file);
         if (ferror(file))
             return 0;
 
         for (int i = 0; i < res; i++)
-            if (buf[i] == '\n')
+            if (buffer[i] == '\n')
                 counter++;
 
         if (feof(file))
@@ -132,12 +133,14 @@ int unexpectedError(void)
     fprintf(stderr, "AN UNEXPECTED ERROR HAS OCCURRED. ");
     fprintf(stderr, "PLEASE SUBMIT AN ISSUE REPORT HERE:\n");
     fprintf(stderr, "\thttps://github.com/jacob-thompson/%s/issues\n", PROJECT_NAME);
+
     return EXIT_FAILURE;
 }
 
 int readError(void)
 {
     fprintf(stderr, "FAILED TO OPEN ONE OR MORE LIST FILES\n");
+
     return EXIT_FAILURE;
 }
 
