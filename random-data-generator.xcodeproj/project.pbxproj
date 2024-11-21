@@ -6,11 +6,6 @@
 	objectVersion = 77;
 	objects = {
 
-/* Begin PBXBuildFile section */
-		947874CC2CEE2175002F4381 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 947874CB2CEE2171002F4381 /* README.md */; };
-		947874D02CEE224A002F4381 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 947874CF2CEE224A002F4381 /* LICENSE */; };
-/* End PBXBuildFile section */
-
 /* Begin PBXCopyFilesBuildPhase section */
 		94D6DF8E2CED1C13001A875F /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
@@ -28,25 +23,18 @@
 		947874CB2CEE2171002F4381 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		947874CF2CEE224A002F4381 /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		94D6DF902CED1C13001A875F /* random-data-generator */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "random-data-generator"; sourceTree = BUILT_PRODUCTS_DIR; };
+		94F553ED2CEEC19F00C5D189 /* output.csv */ = {isa = PBXFileReference; lastKnownFileType = text; path = output.csv; sourceTree = "<group>"; };
 /* End PBXFileReference section */
-
-/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		947874C42CEDD9CB002F4381 /* Exceptions for "random-data-generator" folder in "random-data-generator" target */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				output.csv,
-			);
-			target = 94D6DF8F2CED1C13001A875F /* random-data-generator */;
-		};
-/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		94D6DF922CED1C13001A875F /* random-data-generator */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			exceptions = (
-				947874C42CEDD9CB002F4381 /* Exceptions for "random-data-generator" folder in "random-data-generator" target */,
-			);
 			path = "random-data-generator";
+			sourceTree = "<group>";
+		};
+		94F553EC2CEEBFB900C5D189 /* data */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = data;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -68,6 +56,8 @@
 				947874C22CEDD76F002F4381 /* .gitignore */,
 				947874CB2CEE2171002F4381 /* README.md */,
 				947874CF2CEE224A002F4381 /* LICENSE */,
+				94F553ED2CEEC19F00C5D189 /* output.csv */,
+				94F553EC2CEEBFB900C5D189 /* data */,
 				94D6DF922CED1C13001A875F /* random-data-generator */,
 				94D6DF912CED1C13001A875F /* Products */,
 			);
@@ -99,6 +89,7 @@
 			);
 			fileSystemSynchronizedGroups = (
 				94D6DF922CED1C13001A875F /* random-data-generator */,
+				94F553EC2CEEBFB900C5D189 /* data */,
 			);
 			name = "random-data-generator";
 			packageProductDependencies = (
@@ -131,6 +122,8 @@
 			);
 			mainGroup = 94D6DF872CED1C13001A875F;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 94D6DF912CED1C13001A875F /* Products */;
 			projectDirPath = "";
@@ -146,8 +139,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				947874D02CEE224A002F4381 /* LICENSE in Resources */,
-				947874CC2CEE2175002F4381 /* README.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
