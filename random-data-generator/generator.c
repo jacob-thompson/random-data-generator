@@ -7,19 +7,42 @@
 
 #include "generator.h"
 
-char* withoutCapsAndSpaces(char* str)
+void clean(FILE* output)
 {
-    int count = 0;
-    for (int i = 0; str[i]; i++)
+    output = fopen("output.csv", "r");
+    FILE *temp = fopen("temp", "w+");
+
+    char* line = malloc(BUF_SIZE * sizeof(char));
+    while (fgets(line, BUF_SIZE, output) != NULL)
     {
-        str[i] = tolower(str[i]);
-        if (str[i] != ' ')
-            str[count++] = str[i];
+        if (strstr(line, ", \n"))
+        {
+            unsigned long len = strlen(line);
+            line[len - BYTES_TO_OVERWRITE] = '\0';
+            fprintf(temp, "%s\n", line);
+        }
     }
 
-    str[count] = '\0';
+    fclose(output);
+    fclose(temp);
+    free(line);
 
-    return str;
+    rename("temp", "output.csv");
+}
+
+char* withoutCapsAndSpaces(char* email)
+{
+    int count = 0;
+    for (int i = 0; email[i]; i++)
+    {
+        email[i] = tolower(email[i]);
+        if (email[i] != ' ')
+            email[count++] = email[i];
+    }
+
+    email[count] = '\0';
+
+    return email;
 }
 
 char* getPhone(void)
@@ -48,35 +71,31 @@ char* getEmail(char* first, char* last)
         case 1:
             strcat(email, last);
             strcat(email, "@gmail.com");
-            return withoutCapsAndSpaces(email);
             break;
         case 2:
             strcat(email, last);
             strcat(email, "@yahoo.com");
-            return withoutCapsAndSpaces(email);
             break;
         case 3:
             strcat(email, last);
             strcat(email, "@outlook.com");
-            return withoutCapsAndSpaces(email);
             break;
         case 4:
             strcat(email, last);
             strcat(email, "@hotmail.com");
-            return withoutCapsAndSpaces(email);
             break;
         case 5:
             strcat(email, last);
             strcat(email, "@aol.com");
-            return withoutCapsAndSpaces(email);
             break;
         default:
             strcat(email, "@");
             strcat(email, last);
             strcat(email, ".com");
-            return withoutCapsAndSpaces(email);
             break;
     }
+
+    return withoutCapsAndSpaces(email);
 }
 
 char* getName(unsigned short count, FILE* list)
@@ -140,6 +159,41 @@ int unexpectedError(void)
 int readError(void)
 {
     fprintf(stderr, "FAILED TO OPEN ONE OR MORE LIST FILES\n");
+
+    return EXIT_FAILURE;
+}
+
+int argumentError(char* command)
+{
+    fprintf(stderr, "Usage: %s [-%s]\n", command, ARGS);
+
+    fprintf(stderr, "\t-c <INT>\n");
+    fprintf(stderr, "\t\t Configures the number of entries to generate.\n");
+
+    fprintf(stderr, "\t-f\n");
+    fprintf(stderr, "\t\t Toggles the first name field.\n");
+
+    fprintf(stderr, "\t-m\n");
+    fprintf(stderr, "\t\t Toggles the middle name field.\n");
+
+    fprintf(stderr, "\t-l\n");
+    fprintf(stderr, "\t\t Toggles the last name field.\n");
+
+    fprintf(stderr, "\t-g\n");
+    fprintf(stderr, "\t\t Toggles the geolocation field.\n");
+
+    fprintf(stderr, "\t-e\n");
+    fprintf(stderr, "\t\t Toggles the email field.\n");
+
+    fprintf(stderr, "\t-p\n");
+    fprintf(stderr, "\t\t Toggles the phone number field.\n");
+
+    return EXIT_FAILURE;
+}
+
+int valueError(void)
+{
+    fprintf(stderr, "INVALID VALUE PASSED TO ARG\n");
 
     return EXIT_FAILURE;
 }
