@@ -12,10 +12,7 @@ int main(int argc, char** argv)
     projectInfo();
     srand((int)time(NULL));
 
-    struct generatedField first;
-    struct generatedField middle;
-    struct generatedField last;
-    struct generatedField geo;
+    struct generatedField first, middle, last, geo;
 
     first.flag = middle.flag = last.flag = geo.flag = 0;
     int customData, showEmail, showPhone;
@@ -62,19 +59,19 @@ int main(int argc, char** argv)
         return valueError();
 
     char* header = malloc(sizeof(BUF_SIZE));
-    if (customData != 0)
+    if (customData)
     {
-        if (first.flag != 0)
+        if (first.flag)
             strcat(header, "First, ");
-        if (middle.flag != 0)
+        if (middle.flag)
             strcat(header, "Middle, ");
-        if (last.flag != 0)
+        if (last.flag)
             strcat(header, "Last, ");
-        if (geo.flag != 0)
+        if (geo.flag)
             strcat(header, "Geolocation, ");
-        if (showEmail != 0)
+        if (showEmail)
             strcat(header, "Email, ");
-        if (showPhone != 0)
+        if (showPhone)
             strcat(header, "Phone");
     } else
         strcat(header, "First, Middle, Last, Geolocation, Email, Phone");
@@ -85,7 +82,7 @@ int main(int argc, char** argv)
     last.list = fopen("data/last.txt", "r");
     geo.list = fopen("data/geo.txt", "r");
 
-    if (first.list == NULL || middle.list == NULL || last.list == NULL || geo.list == NULL)
+    if (!first.list || !middle.list || !last.list || !geo.list)
         return readError();
 
     first.count = countList(first.list);
@@ -93,7 +90,7 @@ int main(int argc, char** argv)
     last.count = countList(last.list);
     geo.count = countList(geo.list);
 
-    if (first.count == 0 || middle.count == 0 || last.count == 0 || geo.count == 0)
+    if (!first.count || !middle.count || !last.count || !geo.count)
         return unexpectedError();
 
     FILE* out = fopen("output.csv", "w+");
@@ -109,7 +106,7 @@ int main(int argc, char** argv)
         char* emailEntry = getEmail(firstEntry, lastEntry);
         char* phoneEntry = getPhone();
 
-        if (customData != 0)
+        if (customData)
         {
             if (first.flag)
                 fprintf(out, "%s, ", firstEntry);
@@ -138,7 +135,7 @@ int main(int argc, char** argv)
 
     fclose(out);
 
-    if (customData != 0 && showPhone == 0)
+    if (customData && !showPhone)
         clean(out);
 
     return EXIT_SUCCESS;
