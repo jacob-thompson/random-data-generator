@@ -1,2 +1,4 @@
+*.o
+random-data-generator
 output.csv
 random-data-generator.xcodeproj/xcuserdata/
