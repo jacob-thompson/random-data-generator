@@ -61,6 +61,7 @@ int main(int argc, char** argv)
     char* header = malloc(BUF_SIZE * sizeof(char));
     if (customData)
     {
+        header[0] = 0;
         if (first.flag)
             strcat(header, "First, ");
         if (middle.flag)
@@ -74,13 +75,12 @@ int main(int argc, char** argv)
         if (showPhone)
             strcat(header, "Phone");
     } else
-        strcat(header, "First, Middle, Last, Geolocation, Email, Phone");
+        strcpy(header, "First, Middle, Last, Geolocation, Email, Phone");
 
-
-    first.list = fopen("data/first.txt", "r");
-    middle.list = fopen("data/middle.txt", "r");
-    last.list = fopen("data/last.txt", "r");
-    geo.list = fopen("data/geo.txt", "r");
+    first.list = fopen("data\\first.txt", "r");
+    middle.list = fopen("data\\middle.txt", "r");
+    last.list = fopen("data\\last.txt", "r");
+    geo.list = fopen("data\\geo.txt", "r");
 
     if (!first.list || !middle.list || !last.list || !geo.list)
         return readError();
@@ -95,6 +95,7 @@ int main(int argc, char** argv)
 
     FILE* out = fopen("output.csv", "w+");
     fprintf(out, "%s\n", header);
+    fflush(out);
     free(header);
 
     for (int id = 0; id < entries; id++)
@@ -122,9 +123,12 @@ int main(int argc, char** argv)
                 fprintf(out, "%s", phoneEntry);
 
             fprintf(out, "\n");
+        fflush(out);
         } else
+        {
             fprintf(out, "%s, %s, %s, %s, %s, %s\n", firstEntry, middleEntry, lastEntry, geoEntry, emailEntry, phoneEntry);
-
+            fflush(out);
+        }
         free(firstEntry);
         free(middleEntry);
         free(lastEntry);

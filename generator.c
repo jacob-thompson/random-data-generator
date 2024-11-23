@@ -27,6 +27,7 @@ void clean(FILE* output)
     fclose(temp);
     free(line);
 
+    remove("output.csv");
     rename("temp", "output.csv");
 }
 
@@ -62,7 +63,7 @@ char* getPhone(void)
 char* getEmail(char* first, char* last)
 {
     char* email = malloc(BUF_SIZE * sizeof(char));
-    strcat(email, first);
+    strcpy(email, first);
 
     unsigned short domain = rand() % POSSIBLE_EMAIL_DOMAINS + 1;
 

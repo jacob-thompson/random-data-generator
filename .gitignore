@@ -1,2 +1,4 @@
 output.csv
-random-data-generator.xcodeproj/xcuserdata/
+main.o
+generator.o
+random-data-generator.exe
