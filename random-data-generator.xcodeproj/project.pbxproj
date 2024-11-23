@@ -26,6 +26,16 @@
 		94F553ED2CEEC19F00C5D189 /* output.csv */ = {isa = PBXFileReference; lastKnownFileType = text; path = output.csv; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		944D59032CF1E3EF00E5C4A7 /* Exceptions for "data" folder in "random-data-generator" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				logo.jpg,
+			);
+			target = 94D6DF8F2CED1C13001A875F /* random-data-generator */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		94D6DF922CED1C13001A875F /* random-data-generator */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
@@ -34,6 +44,9 @@
 		};
 		94F553EC2CEEBFB900C5D189 /* data */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				944D59032CF1E3EF00E5C4A7 /* Exceptions for "data" folder in "random-data-generator" target */,
+			);
 			path = data;
 			sourceTree = "<group>";
 		};

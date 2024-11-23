@@ -1,4 +1,24 @@
+[![Contributors][contributors-shield]][contributors-url]
+[![Forks][forks-shield]][forks-url]
+[![Stargazers][stars-shield]][stars-url]
+[![Issues][issues-shield]][issues-url]
+[![MIT License][license-shield]][license-url]
+
 # random-data-generator
+
+<br />
+<div align="center">
+  <a href="https://github.com/jacob-thompson/random-data-generator">
+    <img src="https://raw.githubusercontent.com/jacob-thompson/random-data-generator/main/data/logo.png" alt="Logo" width="80" height="80">
+  </a>
+
+  <h3 align="center">random-data-generator</h3>
+
+  <p align="center">
+    Random data generation from CLI
+    <br />
+  </p>
+</div>
 
 ## About
 
@@ -57,3 +77,26 @@ Geolocation: `-g`
 Email: `-e`
 
 Phone number: `-p`
+
+> [!NOTE]
+> If there are no output field arguments provided,
+> then all of the fields will be written into the output.
+
+## License
+
+Distributed under the MIT License. See [LICENSE](https://github.com/jacob-thompson/random-data-generator/blob/main/LICENSE) for more information.
+
+## Contact
+
+Jacob Alexander Thompson - jacobalthompson@gmail.com
+
+[contributors-shield]: https://img.shields.io/github/contributors/jacob-thompson/random-data-generator.svg?style=for-the-badge
+[contributors-url]: https://github.com/jacob-thompson/random-data-generator/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/jacob-thompson/random-data-generator.svg?style=for-the-badge
+[forks-url]: https://github.com/jacob-thompson/random-data-generator/network/members
+[stars-shield]: https://img.shields.io/github/stars/jacob-thompson/random-data-generator.svg?style=for-the-badge
+[stars-url]: https://github.com/jacob-thompson/random-data-generator/stargazers
+[issues-shield]: https://img.shields.io/github/issues/jacob-thompson/random-data-generator.svg?style=for-the-badge
+[issues-url]: https://github.com/jacob-thompson/random-data-generator/issues
+[license-shield]: https://img.shields.io/github/license/jacob-thompson/random-data-generator.svg?style=for-the-badge
+[license-url]: https://github.com/jacob-thompson/random-data-generator/blob/main/LICENSE
