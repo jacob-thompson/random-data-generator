@@ -9,7 +9,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/jacob-thompson/random-data-generator">
-    <img src="https://raw.githubusercontent.com/jacob-thompson/random-data-generator/main/data/logo.png" alt="Logo" width="80" height="80">
+    <img src="https://raw.githubusercontent.com/jacob-thompson/random-data-generator/main/data/logo.jpg" alt="Logo" width="80" height="80">
   </a>
 
   <h3 align="center">random-data-generator</h3>
