@@ -58,7 +58,7 @@ int main(int argc, char** argv)
     if (entries < 0)
         return valueError();
 
-    char* header = malloc(sizeof(BUF_SIZE));
+    char* header = malloc(BUF_SIZE * sizeof(char));
     if (customData)
     {
         if (first.flag)
@@ -77,10 +77,10 @@ int main(int argc, char** argv)
         strcat(header, "First, Middle, Last, Geolocation, Email, Phone");
 
 
-    first.list = fopen(".data/first.txt", "r");
-    middle.list = fopen(".data/middle.txt", "r");
-    last.list = fopen(".data/last.txt", "r");
-    geo.list = fopen(".data/geo.txt", "r");
+    first.list = fopen("data/first.txt", "r");
+    middle.list = fopen("data/middle.txt", "r");
+    last.list = fopen("data/last.txt", "r");
+    geo.list = fopen("data/geo.txt", "r");
 
     if (!first.list || !middle.list || !last.list || !geo.list)
         return readError();

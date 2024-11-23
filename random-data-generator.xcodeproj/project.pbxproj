@@ -32,9 +32,9 @@
 			path = "random-data-generator";
 			sourceTree = "<group>";
 		};
-		94F553EC2CEEBFB900C5D189 /* .data */ = {
+		94F553EC2CEEBFB900C5D189 /* data */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			path = .data;
+			path = data;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -57,7 +57,7 @@
 				947874CB2CEE2171002F4381 /* README.md */,
 				947874CF2CEE224A002F4381 /* LICENSE */,
 				94F553ED2CEEC19F00C5D189 /* output.csv */,
-				94F553EC2CEEBFB900C5D189 /* .data */,
+				94F553EC2CEEBFB900C5D189 /* data */,
 				94D6DF922CED1C13001A875F /* random-data-generator */,
 				94D6DF912CED1C13001A875F /* Products */,
 			);
@@ -89,7 +89,7 @@
 			);
 			fileSystemSynchronizedGroups = (
 				94D6DF922CED1C13001A875F /* random-data-generator */,
-				94F553EC2CEEBFB900C5D189 /* .data */,
+				94F553EC2CEEBFB900C5D189 /* data */,
 			);
 			name = "random-data-generator";
 			packageProductDependencies = (
