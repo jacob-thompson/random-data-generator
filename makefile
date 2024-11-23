@@ -5,7 +5,7 @@ OBJ = main.o generator.o
 OUT = random-data-generator
 .PHONY: clean
 
-%.o: %.c $(DEPS)
+%.o: %.c $(DEPS) clean
 	$(CC) -c -o $@ $< $(CFLAGS)
 
 $(OUT): $(OBJ)
