@@ -41,7 +41,7 @@ Product > Scheme > Edit Scheme... > Run > Arguments
 
 The following should build and run the program on Linux and macOS systems:
 
-```
+```bash
 git clone -b unix --single-branch https://github.com/jacob-thompson/random-data-generator.git
 cd random-data-generator
 make
@@ -55,7 +55,7 @@ make
 
 The following commands should build and run the program on Windows systems:
 
-```
+```bash
 git clone -b windows --single-branch https://github.com/jacob-thompson/random-data-generator.git
 cd random-data-generator
 make
